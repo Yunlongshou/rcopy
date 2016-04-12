@@ -1,10 +1,10 @@
 # NAME
 
-ior - Interpreter of reproduce.
+rcopy.pl - Interpreter of reproduce.
 
 # DEMO
 
-![ior](https://dl.dropboxusercontent.com/u/7779513/cpg/2016-04-12_cpg.gif)
+![rcopy](https://dl.dropboxusercontent.com/u/7779513/cpg/2016-04-12_cpg.gif)
 
 # LICENSE
 
