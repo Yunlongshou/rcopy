@@ -4,7 +4,7 @@ rcopy.pl - Interpreter of reproduce.
 
 # DEMO
 
-![rcopy](https://dl.dropboxusercontent.com/u/7779513/cpg/2016-04-12_cpg.gif)
+![rcopy](https://dl.dropboxusercontent.com/u/7779513/rcopy/2016-04-12_rcopy.gif)
 
 # LICENSE
 
