@@ -101,9 +101,11 @@ sub main {
                             my $new = $source;
                             $new =~ s/$before/$_/;
                             if ($fmt eq 'file'){
+                                next unless (-f $source);
                                 copy($source, $new) or die $!;
                             }
                             elsif ($fmt eq 'dir'){
+                                next unless (-d $source);
                                 mkdir($new) unless (-d $new);
                                 rcopy($source, $new) or die $!;
                             }
@@ -115,16 +117,7 @@ sub main {
                     opendir (my $iter, $dir) or die;
                     for $source (readdir $iter) {
                         next if ($source =~ /^\./);
-                        if ($fmt eq 'file'){
-                            if (-f $dir.'/'.$source) {
-                                $c->($source);
-                            }
-                        }
-                        elsif ($fmt eq 'dir'){
-                            if (-d $dir.'/'.$source) {
-                                $c->($source);
-                            }
-                        }
+                        $c->($source);
                     }
                     closedir $iter;
                 } else {
@@ -150,12 +143,12 @@ sub iter {
         for (readdir $iter) {
             next if ($_ =~ /\A\./);
             if (-f $dir.'/'.$_) {
-                push @file, "\tfile: $dir/$_\n";
+                push @file, "\tfile: $_\n";
             } elsif (-d $dir.'/'.$_) {
-                push @dir, "\tdir: $dir/$_\n";
+                push @dir, "\tdir: $_\n";
                 $last_dir = $_;
             } else {
-                push @other, "\tother: $dir/$_\n";
+                push @other, "\tother: $_\n";
             }
         }
     closedir $iter;
